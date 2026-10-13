@@ -1,5 +1,5 @@
 
-name: My First GitHub Action
+name: Build Docker Image
 
 on:
   push:
@@ -7,12 +7,12 @@ on:
       - main
 
 jobs:
-  hello:
+  docker-build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Get the code
         uses: actions/checkout@v4
 
-      - name: Show a message
-        run: echo "Hello! My DevOps journey has started."
+      - name: Build Docker image
+        run: docker build -t devops-practice .
